@@ -52,7 +52,7 @@ int main(int argc, char** argv)
          num_iter++;
 
          std::chrono::time_point<std::chrono::high_resolution_clock> end_time = std::chrono::high_resolution_clock::now();
-         std::chrono::duration<double> elapsed = end_time - start_time;  
+         elapsed = end_time - start_time;  
       }
    
       std::cout << " Elapsed time is fir N =" << n << elapsed.count() / num_iter << " seconds per iteration "  << std::endl;
