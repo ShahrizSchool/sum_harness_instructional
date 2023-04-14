@@ -32,10 +32,6 @@ sum(int64_t N, uint64_t A[])
    for(int i = 0; i < N - 1; i++){
       sum += A[i];
    }
-
-   for(int i = 0; i < sum; i++) {
-      sum += i;
-   }
    return sum;
 }
 

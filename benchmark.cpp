@@ -44,7 +44,6 @@ int main(int argc, char** argv)
       // invoke method to perform the sum
       // insert your end timer code here, and print out elapsed time for this problem size
       std::chrono::time_point<std::chrono::high_resolution_clock> end_time = std::chrono::high_resolution_clock::now();
-      std::chrono::duration<double> elapsed = end_time - start_time;      
 
       int64_t num_iter = 0;
       while(elapsed.count() > 30.0){
