@@ -41,19 +41,18 @@ int main(int argc, char** argv)
 
       // insert your timer code here
       std::chrono::time_point<std::chrono::high_resolution_clock> start_time = std::chrono::high_resolution_clock::now();
-
+      }
+      // invoke method to perform the sum
+      // insert your end timer code here, and print out elapsed time for this problem size
+      std::chrono::duration<double> elapsed = end_time - start_time;
 
       int64_t num_iter = 0;
       while(elapsed.count() < 30.0){
          t = sum(n, &A[0]);
          num_iter++;
       }
-      // invoke method to perform the sum
-
-      // insert your end timer code here, and print out elapsed time for this problem size
+      
       std::chrono::time_point<std::chrono::high_resolution_clock> end_time = std::chrono::high_resolution_clock::now();
-      std::chrono::duration<double> elapsed = end_time - start_time;
-
    
       std::cout << " Elapsed time is : " << elapsed.count() << " " << std::endl;
       printf(" Sum result = %lld \n",t);
