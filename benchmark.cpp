@@ -21,10 +21,10 @@ extern int64_t sum(int64_t N, uint64_t A[]);
 /* The benchmarking program */
 int main(int argc, char** argv) 
 {
-   std::cout << std::fixed << std::setprecision(4);
+   std::cout << std::fixed << std::setprecision(2);
 
 #define MAX_PROBLEM_SIZE 1 << 28  //  256M
-   std::vector<int64_t> problem_sizes{ 1000000, 256000000};
+   std::vector<int64_t> problem_sizes{ 1000000, 256000000 };
    
    std::vector<uint64_t> A(256000000);
 
@@ -47,9 +47,10 @@ int main(int argc, char** argv)
       std::chrono::duration<double> elapsed = end_time - start_time;      
 
       int64_t num_iter = 0;
-      while(elapsed.count() < 30.0){
+      while(elapsed.count() > 30.0){
          t = sum(n, &A[0]);
          num_iter++;
+         std::chrono::duration<double> elapsed = end_time - start_time;  
       }
    
       std::cout << " Elapsed time is : " << elapsed.count() << " " << std::endl;
