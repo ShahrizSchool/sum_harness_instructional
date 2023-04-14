@@ -32,9 +32,9 @@ print("var names =", var_names)
 # assumption: column order - 0=problem size, 1=blas time, 2=basic time
 
 problem_sizes = df[var_names[0]].values.tolist()
-code1_time = df[var_names[1]].values.tolist()
-code2_time = df[var_names[2]].values.tolist()
-code3_time = df[var_names[3]].values.tolist()
+direct = df[var_names[1]].values.tolist()
+indirect = df[var_names[2]].values.tolist()
+vector = df[var_names[3]].values.tolist()
 
 plt.title("Comparison of 3 Codes")
 
@@ -42,15 +42,15 @@ xlocs = [i for i in range(len(problem_sizes))]
 
 plt.xticks(xlocs, problem_sizes)
 
-plt.plot(code1_time, "r-o")
-plt.plot(code2_time, "b-x")
-plt.plot(code3_time, "g-^")
+plt.plot(direct, "r-o")
+plt.plot(indirect, "b-x")
+plt.plot(vector, "g-^")
 
 #plt.xscale("log")
 #plt.yscale("log")
 
 plt.xlabel("Problem Sizes")
-plt.ylabel("runtime")
+plt.ylabel("Estimated Memory Latency")
 
 varNames = [var_names[1], var_names[2], var_names[3]]
 plt.legend(varNames, loc="best")

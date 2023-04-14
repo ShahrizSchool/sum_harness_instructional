@@ -24,9 +24,9 @@ int main(int argc, char** argv)
    std::cout << std::fixed << std::setprecision(4);
 
 #define MAX_PROBLEM_SIZE 1 << 28  //  256M
-   std::vector<int64_t> problem_sizes{ MAX_PROBLEM_SIZE >> 5, MAX_PROBLEM_SIZE >> 4, MAX_PROBLEM_SIZE >> 3, MAX_PROBLEM_SIZE >> 2, MAX_PROBLEM_SIZE >> 1, MAX_PROBLEM_SIZE};
+   std::vector<int64_t> problem_sizes{ 1000000, 256000000};
    
-   std::vector<uint64_t> A(MAX_PROBLEM_SIZE);
+   std::vector<uint64_t> A(256000000);
 
    int64_t t;
    int n_problems = problem_sizes.size();
@@ -42,12 +42,19 @@ int main(int argc, char** argv)
       // insert your timer code here
       std::chrono::time_point<std::chrono::high_resolution_clock> start_time = std::chrono::high_resolution_clock::now();
 
+
+      int64_t num_iter = 0;
+      while(elapsed.count() < 30.0){
+         t = sum(n, &A[0]);
+         num_iter++;
+      }
       // invoke method to perform the sum
-      t = sum(n, &A[0]);
 
       // insert your end timer code here, and print out elapsed time for this problem size
       std::chrono::time_point<std::chrono::high_resolution_clock> end_time = std::chrono::high_resolution_clock::now();
       std::chrono::duration<double> elapsed = end_time - start_time;
+
+   
       std::cout << " Elapsed time is : " << elapsed.count() << " " << std::endl;
       printf(" Sum result = %lld \n",t);
 

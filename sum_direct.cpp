@@ -23,7 +23,6 @@ sum(int64_t N, uint64_t A[])
    for(int i = 0; i < N - 1; i++){
       sum += i;
    }
-
    return sum;
 }
 
